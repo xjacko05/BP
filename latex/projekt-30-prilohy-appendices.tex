@@ -1,0 +1,44 @@
+\chapter{Manuál}
+
+Systém je potrebné spúšťať s~prepínačom \texttt{-u}, pre zaručenie správneho výstupu. Príklad spustenia:
+
+\texttt{python3 -u system.py setup ----database}
+
+\section{Príprava systému}
+Systém je potrebné pred prvým použitím pripraviť. Táto nutná príprava zahŕňa vytvorenie tabuľku na databázovom serveri, inicializáciu a spustenie blockchainu, inštaláciu prekladača pre jazyk Solidity a nasadenie kontraktu. 
+Príkaz \texttt{setup} naznačí systému, že ide o~prípravu. Zvyšné úkony sú reprezentované prepínačmi:
+\begin{itemize}
+    \item{\texttt{database} inicializuje tabuľku na databázovom serveri}
+    \item{\texttt{keys} vygeneruje nový kľúčový pár}
+    \item{\texttt{soliditycompiler} nainštaluje prekladač pre Solidity}
+    \item{\texttt{blockchain} - inicializuje a spustí blockchain}
+    \item{\texttt{contract} - nasadí kontrakt do blockchainu}
+    \item{\texttt{verbose} - aktivuje rozšírený výpis}
+\end{itemize}
+
+Prepínač \texttt{contract} je nevyhnutné používať až po predošlom spustení aplikácie s~prepínačom \texttt{blockchain}.
+
+\section{Zápis užívateľa}
+Reprezentovaný príkazom  \texttt{enroll}. Jeho argumentmi sú:
+\begin{itemize}
+    \item{\texttt{key} špecifikuje súbor so súkromným kľúčom}
+    \item{\texttt{template} špecifikuje súbor so šablónou}
+    \item{\texttt{verbose} aktivuje rozšírený výpis}
+\end{itemize}
+
+\section{Autentifikácia užívateľa}
+Reprezentovaný príkazom  \texttt{authenticate}. Jeho argumentmi sú:
+\begin{itemize}
+    \item{\texttt{keys} špecifikuje súbory s~verejným a súkromný kľúčom v~tomto poradí}
+    \item{\texttt{template} špecifikuje súbor so šablónou}
+    \item{\texttt{verbose} aktivuje rozšírený výpis}
+\end{itemize}
+
+\section{Demonštratívna kompromitácia databázy}
+Reprezentovaná príkazom  \texttt{compromise}. Jeh argumentmi sú:
+\begin{itemize}
+    \item{\texttt{victim} špecifikuje súbor s~verejný kľúčom obete}
+    \item{\texttt{attacker} špecifikuje súbory s~verejným a súkromný útočníka}
+    \item{\texttt{template} špecifikuje súbor so šablónou, ktorou má byť nahradená tá autentická}
+    \item{\texttt{verbose} aktivuje rozšírený výpis}
+\end{itemize}
